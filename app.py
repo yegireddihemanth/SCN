@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from pymongo import MongoClient
 from datetime import datetime
 
@@ -38,7 +38,7 @@ def store_data_in_mongo(name, email, phone, course, user_ip, current_time):
 # Home route to display the form
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html')  # Assuming your HTML file is in the templates folder
 
 # Route to process form data and store in MongoDB
 @app.route('/process', methods=['POST'])
@@ -62,4 +62,4 @@ def process_data():
         return jsonify({'message': 'There was an error storing the data. Please try again later.'}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    app.run(host='0.0.0.0', port=5000, debug=True)
