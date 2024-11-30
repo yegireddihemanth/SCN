@@ -38,7 +38,7 @@ def store_data_in_mongo(name, email, phone, course, user_ip, current_time):
 # Home route to display the form
 @app.route('/')
 def index():
-    return "<h1>Welcome to the Registration Page</h1>"
+    return render_template('index.html')
 
 # Route to process form data and store in MongoDB
 @app.route('/process', methods=['POST'])
