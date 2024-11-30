@@ -9,9 +9,14 @@ import re  # For email validation
 app = Flask(__name__)
 
 # MongoDB setup
-client = MongoClient('mongodb+srv://Hemanth:Yv1FlyNivMIXEGfy@scn.g0yg7.mongodb.net/?retryWrites=true&w=majority&appName=SCN',
-    connectTimeoutMS=5000,  # 5 seconds timeout
-    socketTimeoutMS=5000)
+# Updated MongoDB connection
+client = MongoClient(
+    'mongodb+srv://Hemanth:Yv1FlyNivMIXEGfy@scn.g0yg7.mongodb.net/?retryWrites=true&w=majority&appName=SCN',
+    connectTimeoutMS=5000,  # Timeout for connection establishment
+    socketTimeoutMS=5000,  # Timeout for socket operations
+    tls=True,              # Ensure TLS/SSL is explicitly enabled
+    tlsAllowInvalidCertificates=False  # Enforce strict certificate validation
+)
 
 # Access the database and collection
 db = client['SCN']
