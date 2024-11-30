@@ -1,7 +1,11 @@
 from flask import Flask, request, jsonify, render_template
 from pymongo import MongoClient
 from datetime import datetime
+import subprocess
+import sys
 
+# Install pymongo with SRV support if not installed
+subprocess.check_call([sys.executable, "-m", "pip", "install", "pymongo[srv]"])
 app = Flask(__name__)
 
 # MongoDB setup
