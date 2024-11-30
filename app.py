@@ -9,9 +9,11 @@ import re  # For email validation
 app = Flask(__name__)
 
 # MongoDB setup
-client = MongoClient('mongodb://localhost:27017/')
+client = MongoClient('mongodb+srv://Hemanth:Yv1FlyNivMIXEGfy@scn.g0yg7.mongodb.net/?retryWrites=true&w=majority&appName=SCN')
+
+# Access the database and collection
 db = client['SCN']
-collection = db['directApplies']
+collection = db['directApplies']    
 
 # Admin email setup (notification email)
 admin_email = 'skillcatalystnexus.inst@gmail.com'  # Replace with your admin email
